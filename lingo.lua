@@ -126,6 +126,13 @@ function Lingo:getPhrase( name, language )
 
 end
 
+-- Gets a language table.
+-- @param name The name of the language.
+-- @return The language table.
+function Lingo:getLanguage( name )
+	return self._languages[ name ]
+end
+
 -- Gets a list of all loaded languages.
 -- @return A table containing the names of all the loaded languages.
 function Lingo:getLanguages()

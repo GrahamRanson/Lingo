@@ -60,6 +60,14 @@ for i = 1, #languages, 1 do
 end
 ```
 
+##### Get a language and print out all the phrases.
+```lua
+local language = lingo:getLanguage( "english" )
+
+for name, phrase in pairs( language ) do
+	print( name, phrase )
+end
+```
 Example Language Files
 -------------------------
 
