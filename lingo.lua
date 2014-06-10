@@ -126,6 +126,28 @@ function Lingo:getPhrase( name, language )
 
 end
 
+-- Sets a phrase in a language.
+-- @param name The name of the phrase.
+-- @param content The content of the phrase.
+-- @param language The name of the language. Optional, defaults to the current one.
+function Lingo:setPhrase( name, content, language )
+
+	language = language or self:getCurrentLanguage()
+
+	if language then
+		if self._languages[ language ] then
+			self._languages[ language ][ name ] = content
+		end
+	else
+		if self:getCurrentLanguage() then
+			self:_warning( "Language called " .. language .. " not found."  )
+		else
+			self:_warning( "Current language has not been set."  )
+		end
+	end
+
+end
+
 -- Gets a language table.
 -- @param name The name of the language.
 -- @return The language table.

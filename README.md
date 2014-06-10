@@ -68,6 +68,16 @@ for name, phrase in pairs( language ) do
 	print( name, phrase )
 end
 ```
+
+##### Edit ( or add ) a phrase in the current language.
+```lua
+lingo:setPhrase( "hello", "Good afternoon!" )
+```
+
+##### Edit ( or add ) a phrase in a specific language.
+```lua
+lingo:setPhrase( "hello", "Guten Tag!", "german" )
+```
 Example Language Files
 -------------------------
 
