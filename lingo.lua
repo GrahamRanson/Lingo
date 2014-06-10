@@ -224,6 +224,7 @@ function Lingo:_info( message )
 end
 
 -- Read in the contents of a file.
+-- @param path The path to the file.
 -- @return The read in data.
 function Lingo:_readFile( path )
 
@@ -241,7 +242,7 @@ function Lingo:_readFile( path )
 
 		if data then
 			
-			-- Remove the base 64 encoding.
+			-- Remove the json encoding.
 			data = decode( data )
 
 			-- Return the data
