@@ -78,6 +78,27 @@ lingo:setPhrase( "hello", "Good afternoon!" )
 ```lua
 lingo:setPhrase( "hello", "Guten Tag!", "german" )
 ```
+
+##### Save a langauge out to system.DocumentsDirectory. Useful if you've edited phrases.
+```lua
+lingo:saveLanguage( "german" )
+```
+
+##### Save a langauge out to the ( already created ) 'languages' directory of system.DocumentsDirectory. Useful if you've edited phrases.
+```lua
+lingo:saveLanguage( "german", "languages/" )
+```
+
+##### Save a langauge out to the system.TemporaryDirectory. Useful if you've edited phrases.
+```lua
+lingo:saveLanguage( "german", system.TemporaryDirectory )
+```
+
+##### Save a langauge out to the system.DocumentsDirectory but with a new name. Useful if you've edited phrases.
+```lua
+lingo:saveLanguage( "germanEdited", nil, system.DocumentsDirectory, lingo:getLanguage( "german" ) )
+```
+
 Example Language Files
 -------------------------
 

@@ -89,6 +89,20 @@ function Lingo:loadLanguage( name, path, baseDir )
 
 end
 
+-- Saves a language to disk.
+-- @param name The name of the language.
+-- @param path The path to the directory that the language file should be in. Optional, defaults to the root directory.
+-- @param baseDir The base directory that the language file should be saved to. Optional, defaults to system.DocumentsDirectory.
+function Lingo:saveLanguage( name, path, baseDir, language )
+
+	local path = self:_createPath( name, path, baseDir or system.DocumentsDirectory )
+
+	if language or self._languages[ name ] then
+		self:_writeFile( path, language or self._languages[ name ] )
+	end
+
+end
+
 -- Gets the name of the current language.
 -- @return The name of the language.
 function Lingo:getCurrentLanguage()
@@ -236,6 +250,28 @@ function Lingo:_readFile( path )
 		end
 
 	end	
+
+end
+
+-- Write some data to a file.
+-- @param path The path to the file.
+-- @param data The data to write.
+function Lingo:_writeFile( path, data )
+
+	-- Json encode the data.
+	local data = encode( data )
+
+	-- Open the file for writing.
+	local file = open( path, "w" )
+
+	-- Save out the data and close the file.
+	if file then
+		file:write( data )
+		close( file )
+		file = nil
+	else
+		self:_error( "Can't open file for writing at path - " .. path )
+	end
 
 end
 
